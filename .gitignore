@@ -3,7 +3,7 @@ venv/
 
 # Ignora configurações do PyCharm
 .idea/
-
+jenkins_home
 # Ignora arquivos e pastas de cache do Python
 **/__pycache__/
 **/*.py[cod]
