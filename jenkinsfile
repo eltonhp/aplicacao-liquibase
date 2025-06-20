@@ -1,0 +1,29 @@
+def buildImage = 'docker.repo.bcnet.bcb.gov.br/bacen/devel-java17-21:1.0.0'
+
+properties([
+  parameters([
+    string(name: 'ENV_PROFILE', defaultValue: 'dev', description: 'Spring profile para ativar (ex: dev, hom, prd)')
+  ]),
+  buildDiscarder(logRotator(daysToKeepStr: '15', numToKeepStr: '5')),
+  disableConcurrentBuilds()
+])
+
+node('pi-build') {
+  try {
+    stage('Checkout') {
+      checkout scm
+    }
+
+    stage("Executar Liquibase com perfil '${params.ENV_PROFILE}'") {
+      docker.image(buildImage).inside("--entrypoint='' -e LANG='C.UTF-8' -e JAVA_HOME=/usr/java/jdk21 -e PATH=/usr/java/jdk21/bin:$PATH") {
+        dir('aplicacao-liquibase') {
+          sh "mvn spring-boot:run -Dspring.profiles.active=${params.ENV_PROFILE}"
+        }
+      }
+    }
+
+  } catch (e) {
+    echo "Erro na execução do Liquibase via aplicação Spring Boot"
+    throw e
+  }
+}
