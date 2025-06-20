@@ -5,7 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="274e20eb-4f8c-4006-81eb-7c2f5a2746c0" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jenkins_home/secrets/initialAdminPassword" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/jenkins_home/users/admin_5849186562923963990/config.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/jenkins_home/users/users.xml" beforeDir="false" afterPath="$PROJECT_DIR$/jenkins_home/users/users.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
